@@ -9,29 +9,22 @@
 </head>
 <!--- add jumbotron here --->
 <body background="https://images.unsplash.com/photo-1483691278019-cb7253bee49f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1440&q=50">
-    <!-- header-->
     <div class="container">
-    <h1 class="text-center row">Skincare Quiz</h1>
-    <div class="text-left row">Your skin is your largest organ and also the most exposed. Everyone has different skincare needs, but shares the same fundamental practices. Take this simple quiz to see how well you know how to take care of your skin.</div>
-    <div class="text-left row">You have 15 seconds to answer each question, answer incorrectly and the time decreases by 3 seconds.</div>
-     <!-- view highscores-->
-     <!-- timer -->
-     <div class="time"></div>
-    <!-- content -->
-     <!-- initial state div -->
-     <!-- button to start quiz -->
-     <div class="row">
-     <button type="button" class="btn btn-outline-info col-md-3">Begin!</button>
-     <button type="button" class="btn btn-outline-info col-md-3" id="nextBtn">Next Question</button>
-     </div>
+        <div class="flex-center flex-column">
+            <h1>Skincare Quiz</h1>
+            <div>Your skin is your largest organ and also the most exposed. Everyone has different skincare needs, but shares the same fundamental practices. Take this simple quiz to see how well you know how to take care of your skin.</div>
+            <!-- timer -->
+            <div class="time"></div>
+            <!-- button to start quiz - new page -->
+            <div>
+                <button type="button" class="btn btn-outline-info col-md-3">
+                    <a href="quiz.html">Begin!</a>
+                </button>
+             <!-- view highscores-->               
+                <button type="button" class="btn btn-outline-info col-md-3">View High Scores</button>
+            </div>
+        </div>
     </div>
-     <!-- game div -->
-     <!-- replace with question and choices when start quiz is clicked -->
-     <!-- question loop through questions -->
-     <div id="question">replace with database</div>
-
-     <div id="choices">replace with choices </div>
-
      <!-- high score div -->
      <!-- replace with high scores when scores is clicked -->
 </body>
