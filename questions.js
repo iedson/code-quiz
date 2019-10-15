@@ -2,27 +2,27 @@ var questions = [
     {
       title: "Which of the following is a non-essential part of skincare routine?",
       choices: ["cleanser", "moisturizer", "exfoliants", "serums"],
-      answer: 3,
+      answer: "serums",
     },
     {
       title: "Which of the following is not an exfoliant",
-      choices: ["AHA", "Salicylic Acid", "hyaluronic acid", "retinol"],
-      answer: 2,
+      choices: ["AHA", "salicylic acid", "hyaluronic acid", "retinol"],
+      answer: "hyaluronic acid",
     },
     {
         title: "Each of the following oils are comedongenic (pore clogging) and shouldn't be used on your face, except for ____",
-        choices: ["rosehip seed oil", "shea butter", "avocado oil", "coconut oil"],
-        answer: 0,
+        choices: ["rosehip seed oil", "jojoba oil", "avocado oil", "coconut oil"],
+        answer: "rosehip seed oil",
     },
     {
         title: "The most common foods that cause congestion in your pores are all of the following except_____",
         choices: ['dairy',"watermelon", "beer", "sugar"],
-        answer: 1,
+        answer: "watermelon",
     },
     {
         title: "Which of the following should not be a DAILY part of your skincare routine?",
         choices: ["cleansing daily", "moisturizing", "exfoliating", "drinking lots of water"],
-        answer: 2,
+        answer: "exfoliating",
     },
   ];
  
