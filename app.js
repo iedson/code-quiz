@@ -1,13 +1,21 @@
 /* global variables */
 var questionDiv = document.getElementById('question');
 var choicesDiv = document.getElementById('choices');
-var answerDiv = document.getElementById('answer');
+var correctAnswer = document.getElementById('answer');
 var nextBtn = document.getElementById('nextBtn');
 var choiceBtn = document.getElementById('choiceBtn');
-var scoreDiv = document.getElementById('score');
+var scoreText = document.getElementById('score');
+var questionCounterText = document.getElementById('questionCounter');
+var highScores= document.getElementById('highScores');
+var submitScoreButton = document.querySelector("#submit-score");
+var user = document.querySelector('#user');
 var currentQuestion = {};
 var startQuestion = 0;
 var score = 0;
+var questionCounter = 0;
+
+var CORRECT_BONUS = 5;
+var MAX_QUESTIONS = 5;
 // array of questions (question~string, choices~array (for loop), answer~string, key~number so you can id in local storage 
 
 // helper function 
@@ -15,6 +23,9 @@ var score = 0;
 function renderQuestion(index) {
     return questions[index].title;
 };
+// take in index, use index to find answer in database, mark question correct, increase score 
+
+ 
 //build choices - for loop
 function renderChoices(index){
     choicesDiv.innerHTML = '';
@@ -23,16 +34,17 @@ function renderChoices(index){
         choiceBtn.textContent = questions[index].choices[i];
         choicesDiv.appendChild(choiceBtn);
     };
-    choiceBtn.addEventListener('click', function(){
-        choices.innerText = currentQuestion['choice' + answer];
-        if (choice == answer){
-            alert('correct!');
-        } else {
-            alert('Wrong!');
-            // speed up timer by 2 seconds
+    document.addEventListener('click', function(e){
+        if(e.choiceBtn== 'answer') {
+            displayMessage('Correct!')
         }
     });
 };
+
+
+
+//if user clicks on a choice and it is the correct answer, increase score 
+
 
 // events
     // start quiz 
@@ -43,14 +55,14 @@ nextBtn.addEventListener('click', function(){
     renderChoices(startQuestion);
 });
 
-// choiceBtn.addEventListener('click', function(){
-//     if(choiceBtn == questions[i].answer){
-//         alert('Correct!');
-//     } else {
-//         alert('WRONG!');
-//         //speed up timer by 2 seconds
-//     };
-// });
+
+incrementScore = num => {
+    score +=num;
+    scoreText.innerText = score;
+}
+
+
+
 
 
 //score 
@@ -62,6 +74,20 @@ nextBtn.addEventListener('click', function(){
     // parse object for screen 
     // display parsed oject in html
     // clear highscores 
+submitScoreButton.addEventListener("click", function(event) {
+  event.preventDefault();
+
+  var user = document.querySelector("#user").value;
+
+  if (user === "") {
+    displayMessage("error", "Username cannot be blank");
+  } else {
+    displayMessage("success", "Score submitted successfully");
+
+    localStorage.setItem("user", email);
+    renderLastRegistered();
+  }
+});
 
 
 
@@ -84,5 +110,4 @@ nextBtn.addEventListener('click', function(){
 /* init */
 questionDiv.innerHTML = renderQuestion(startQuestion);
 renderChoices(startQuestion);
-
 

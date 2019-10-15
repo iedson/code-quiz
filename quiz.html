@@ -6,17 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Skin Care quiz</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./Style/style.css">
 </head>
 <body background="https://images.unsplash.com/photo-1483691278019-cb7253bee49f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1440&q=50">
     <div class="container">
         <div class="flex-center flex-column">
+            <div id="hud">
+                <div id="hud-item">
+                    <p class="hud-prefix">
+                        Question
+                    </p>
+                    <h1 class="hud-main-text" id="questionCounter">
+                        1/5
+                    </h1>
+                </div>
+                <div id="hud-item">
+                    <p class="hud-prefix">
+                        Score
+                    </p>
+                    <h1 class="hud-main-text" id="score">
+                        0
+                    </h1>
+                </div>
+            </div>
             <!-- game div -->
             <!-- replace with question and choices when start quiz is clicked -->
             <!-- question loop through questions -->
-            <div id="question"></div>
-            <div id="choices"></div>
+            <div id="question" class="questions-style"></div>
+            <div id="choices" class="choices-style"></div>
             <div id="score"></div>
-            <button type="button" class="btn btn-outline-info col-md-3" id="nextBtn">Next Question</button>
+            <button type="button" class="btn btn-info col-md-3" id="nextBtn">Next Question</button>
+            <button type="button" class="btn btn-info col-md-3" id="highScores">
+                <a href="highscores.html">View High Scores</a>
+            </button>
         </div>
     </div>
 
