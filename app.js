@@ -5,10 +5,12 @@ var correctAnswer = document.getElementById('answer');
 var nextBtn = document.getElementById('nextBtn');
 var choiceBtn = document.getElementById('choiceBtn');
 var scoreText = document.getElementById('score');
-var questionCounterText = document.getElementById('questionCounter');
 var highScores= document.getElementById('highScores');
 var submitScoreButton = document.querySelector("#submit-score");
 var user = document.querySelector('#user');
+var userName = document.querySelector('#user-name')
+var msgDiv = document.querySelector("#message");
+var finalScore = document.querySelector('#final-score')
 var currentQuestion = {};
 var startQuestion = 0;
 var score = 0;
@@ -24,7 +26,9 @@ function renderQuestion(index) {
     return questions[index].title;
 };
 // take in index, use index to find answer in database, mark question correct, increase score 
-
+function correctAnswer(index){
+    return question[index].answer;
+}
  
 //build choices - for loop
 function renderChoices(index){
@@ -36,8 +40,8 @@ function renderChoices(index){
     };
     document.addEventListener('click', function(e){
         if(e.choiceBtn== 'answer') {
-            displayMessage('Correct!')
-        }
+            displayMessage('Correct!');
+        } 
     });
 };
 
@@ -66,7 +70,8 @@ incrementScore = num => {
 
 
 //score 
-    //show score "You got" + score + "/" + questions.lenght;
+//finalScore.innerHTML = //dynamically add final score from quiz to highscores page
+    //show score "You got" + score + "/" + questions.length;
     // enter initials and submit score, go to highscore event 
     // add to local storage
     // click highscore link 
@@ -74,20 +79,39 @@ incrementScore = num => {
     // parse object for screen 
     // display parsed oject in html
     // clear highscores 
-submitScoreButton.addEventListener("click", function(event) {
-  event.preventDefault();
 
-  var user = document.querySelector("#user").value;
+// renderHighScores();
 
-  if (user === "") {
-    displayMessage("error", "Username cannot be blank");
-  } else {
-    displayMessage("success", "Score submitted successfully");
+// function displayMessage(type, message) {
+//     msgDiv.textContent = message;
+//     msgDiv.setAttribute("class", type);
+//   }
+  
+//   function renderHighScores() {
+//     var user = localStorage.getItem("user");
+  
+//     if (user && finalScore === null) {
+//       return;
+//     }
+  
+//     userName.textContent = user;
+//   }
 
-    localStorage.setItem("user", email);
-    renderLastRegistered();
-  }
-});
+
+// submitScoreButton.addEventListener("click", function(event) {
+//   event.preventDefault();
+
+//   var user = document.querySelector("#user").finalScore;
+
+//   if (user === "") {
+//     displayMessage("error", "Username cannot be blank");
+//   } else {
+//     displayMessage("success", "Score submitted successfully");
+
+//     localStorage.setItem("user", finalScore);
+//     renderLastRegistered();
+//   }
+// }); 
 
 
 

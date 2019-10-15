@@ -8,15 +8,20 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./Style/style.css">
 </head>
-<body background="https://images.unsplash.com/photo-1483691278019-cb7253bee49f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1440&q=50">
+<body background="https://images.unsplash.com/photo-1414510451013-d0a41fea512e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
+    <button type="button" class="btn btn-info">
+            <a href="index.html">Home</a>
+    </button>
     <div class="container">
         <div class="flex-center flex-column">
+            <!-- Heads Up Display -->
             <div id="hud">
                 <div id="hud-item">
                     <p class="hud-prefix">
                         Question
                     </p>
                     <h1 class="hud-main-text" id="questionCounter">
+                    <!-- change to dynamically update -->
                         1/5
                     </h1>
                 </div>
@@ -35,8 +40,8 @@
             <div id="question" class="questions-style"></div>
             <div id="choices" class="choices-style"></div>
             <div id="score"></div>
-            <button type="button" class="btn btn-info col-md-3" id="nextBtn">Next Question</button>
-            <button type="button" class="btn btn-info col-md-3" id="highScores">
+            <button type="button" class="btn btn-info" id="nextBtn">Next Question</button>
+            <button type="button" class="btn btn-info" id="highScores">
                 <a href="highscores.html">View High Scores</a>
             </button>
         </div>

@@ -13,16 +13,21 @@
             <a href="index.html">Home</a>
     </button>
     <div class="container">
-        <div class="flex-center flex-column">
+        <div class="card">
             <h1>Finished!</h1>
-            <div>Your Final Score</div>
+            <div id="final-score">Your Final Score</div>
             <form method="POST">
                 <div class="input-group">
                 <label for="userLabel">Enter Your Initials</label>
                 <input type="text" name="initials" id="user" placeholder="your initals here" />
                 </div>
+                <div id="message"></div>
                 <button id="submit-score" class="btn btn-info">Submit Score</button>
             </form>
+            <div class="card">
+                <h2>Previous High Scores:</h2>
+                <p><strong>User</strong> <span id="user-name"></span></p>
+            </div>
     
 </body>
 <script src="./questions.js"></script>
