@@ -10,7 +10,8 @@ var submitScoreButton = document.querySelector("#submit-score");
 var user = document.querySelector('#user');
 var userName = document.querySelector('#user-name')
 var msgDiv = document.querySelector("#message");
-var finalScore = document.querySelector('#final-score')
+var finalScore = document.querySelector('#final-score');
+
 var currentQuestion = {};
 var startQuestion = 0;
 var score = 0;
@@ -36,13 +37,13 @@ function renderChoices(index){
     for (i = 0; i < questions[index].choices.length; i++) {
         var choiceBtn = document.createElement('button');
         choiceBtn.textContent = questions[index].choices[i];
+        choiceBtn.setAttribute('class', 'js-choice');
         choicesDiv.appendChild(choiceBtn);
     };
-    document.addEventListener('click', function(e){
-        if(e.choiceBtn== 'answer') {
-            displayMessage('Correct!');
-        } 
-    });
+    var userChoice = document.querySelectorAll('.js-choice');
+    userChoice.addEventListener('click', function(){
+        alert('contact made');
+     });
 };
 
 
@@ -58,6 +59,8 @@ nextBtn.addEventListener('click', function(){
     questionDiv.innerHTML=renderQuestion(startQuestion);
     renderChoices(startQuestion);
 });
+
+
 
 
 incrementScore = num => {
@@ -80,54 +83,52 @@ incrementScore = num => {
     // display parsed oject in html
     // clear highscores 
 
-// renderHighScores();
+renderHighScores();
 
 // function displayMessage(type, message) {
 //     msgDiv.textContent = message;
 //     msgDiv.setAttribute("class", type);
 //   }
   
-//   function renderHighScores() {
-//     var user = localStorage.getItem("user");
+function renderHighScores() {
+    var user = localStorage.getItem("user");
   
-//     if (user && finalScore === null) {
-//       return;
-//     }
+    if (user && finalScore === null) {
+      return;
+    }
   
-//     userName.textContent = user;
-//   }
+    userName.textContent = user;
+};
 
 
-// submitScoreButton.addEventListener("click", function(event) {
-//   event.preventDefault();
+submitScoreButton.addEventListener("click", function(event) {
+  event.preventDefault();
 
-//   var user = document.querySelector("#user").finalScore;
+  var user = document.querySelector("#user").finalScore;
 
-//   if (user === "") {
-//     displayMessage("error", "Username cannot be blank");
-//   } else {
-//     displayMessage("success", "Score submitted successfully");
+  if (user === "") {
+    displayMessage("error", "Username cannot be blank");
+  } else {
+    displayMessage("success", "Score submitted successfully");
 
-//     localStorage.setItem("user", finalScore);
-//     renderLastRegistered();
-//   }
-// }); 
+    localStorage.setItem("user", finalScore);
+    renderLastRegistered();
+  }
+}); 
 
 
 
 // need to get this function talking to the html but only on click of the start button
-// function setTime() {
-//   var timerInterval = setInterval(function() {
-//     secondsLeft--;
-//     timeEl.textContent = secondsLeft + "Time Remaining";
-
-//     if(secondsLeft === 0) {
-//       clearInterval(timerInterval);
-//       sendMessage();
-//     }
-
-//   }, 1000);
-// }
+function setTime() {
+    var timerInterval = setInterval(function() {
+        secondsLeft--;
+        timeEl.textContent = secondsLeft + "Time Remaining";
+        if(secondsLeft === 0) {
+            clearInterval(timerInterval);
+            sendMessage();
+        }
+    }, 1000);
+}
     // choose answer
     // wrong answer speeds up countdown
 
